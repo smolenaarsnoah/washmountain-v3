@@ -1,3 +1,6 @@
-name = "cms-website"
-compatibility_date = "2026-05-19"
+name = "washmountain-v3"
+compatibility_date = "2024-09-23"
 pages_build_output_dir = "."
+
+[assets]
+directory = "."
