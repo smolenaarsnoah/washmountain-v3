@@ -1,0 +1,19 @@
+[
+  {
+    "_comment": "Om dit bestand te updaten: deel de inhoud van dit JSON bestand met Claude en vraag hem een nieuw item toe te voegen. Kopieer de output terug naar dit bestand en push naar GitHub."
+  },
+  {
+    "id": 1,
+    "titel": "Washmountain website is live!",
+    "datum": "2025-04-01",
+    "tekst": "De nieuwe site staat online. Meer updates volgen snel.",
+    "afbeelding": ""
+  },
+  {
+    "id": 2,
+    "titel": "Weekendtrip in de maak",
+    "datum": "2025-04-08",
+    "tekst": "We plannen iets speciaals voor augustus, stay tuned.",
+    "afbeelding": ""
+  }
+]

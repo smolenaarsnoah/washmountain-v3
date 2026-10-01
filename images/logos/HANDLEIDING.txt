@@ -1,0 +1,39 @@
+=====================================================
+  WASHMOUNTAIN — LOGO'S AANPASSEN EN TOEVOEGEN
+=====================================================
+
+In deze map ('images/logos/') staan alle logo's van de website:
+
+1. HOOFDLOGO VAN DE WEBSITE:
+   - 'washmountain-logo.png' -> Het officiële logo dat linksboven in de menubalk staat.
+   - Wil je het hoofdlogo veranderen? Vervang dan simpelweg 'washmountain-logo.png' door je nieuwe afbeelding!
+
+2. PARTNER- & SPONSORLOGO'S (De bewegende balk op de homepage):
+   - 'smolenaars.png'
+   - 'sintursula.png'
+   - 'drpepper.png'
+   - 'dtm.png'
+   - 'heuco.png'
+   - 'scapino.png'
+   - 'kfc.png'
+   - 'maasresidence.png'
+   - 'rockstar.png'
+   - 'porsche.png'
+
+-----------------------------------------------------
+HOE VOEG JE EEN NIEUW PARTNERLOGO TOE?
+-----------------------------------------------------
+1. Plaats je nieuwe afbeelding in deze map ('images/logos/'), bijvoorbeeld 'redbull.png'.
+2. Open het bestand 'data/logos.json' in de map 'data/'.
+3. Voeg een nieuw regeltje toe, bijvoorbeeld:
+   {
+     "name": "Red Bull",
+     "file": "redbull.png"
+   }
+4. Klaar! De website toont het logo nu direct automatisch in de bewegende balk op de homepage!
+
+-----------------------------------------------------
+HOE VERWIJDER JE EEN LOGO?
+-----------------------------------------------------
+Verwijder gewoon het betreffende blokje uit 'data/logos.json'.
+=====================================================

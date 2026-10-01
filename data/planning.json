@@ -1,0 +1,53 @@
+[
+  {
+    "_comment": "Om dit bestand te updaten: deel de inhoud van dit JSON bestand met Claude en vraag hem een nieuw item toe te voegen. Kopieer de output terug naar dit bestand en push naar GitHub."
+  },
+  {
+    "id": 1,
+    "periode": "April 2026",
+    "titel": "C1 op circuit Zolder",
+    "beschrijving": "Op het circuit met de Citroën C1 van Mr. Worldwide.",
+    "status": "bevestigd",
+    "afbeelding": "images/evenementen/c1-zolder.jpeg"
+  },
+  {
+    "id": 2,
+    "periode": "April 2026",
+    "titel": "Viering Verjaardag Burgemeester",
+    "beschrijving": "Viering van de eerdere verjaardag van de Burgemeester. Dit wordt gedaan in een special diner: \"Kaasfondue van Lau\"",
+    "status": "bevestigd",
+    "afbeelding": "images/evenementen/kaasfondue.webp"
+  },
+  {
+    "id": 3,
+    "periode": "Juni 2026",
+    "titel": "Verjaardag President",
+    "beschrijving": "Verjaardag van de President. Viering zal later plaatsvinden, datum hiervan wordt binnenkort bekend gemaakt.",
+    "status": "bevestigd",
+    "afbeelding": "images/evenementen/bbq.webp"
+  },
+  {
+    "id": 4,
+    "periode": "Juni 2026",
+    "titel": "Verjaardag Advocaat",
+    "beschrijving": "Onze advocaat zal deze dag jarig zijn. De datum voor de viering zal binnenkort bekend gemaakt worden. Er is momenteel nog een overleg gaande tussen hem en de leidinggevende van het huisfront.",
+    "status": "bevestigd",
+    "afbeelding": "images/evenementen/rode-golf-cabrio.webp"
+  },
+  {
+    "id": 5,
+    "periode": "Juli 2026",
+    "titel": "Zomervakantie Saint-Tropez",
+    "beschrijving": "Deze vakantie kan vanwege omstandigheden niet doorgaan.",
+    "status": "gecanceld",
+    "afbeelding": "images/evenementen/port-saint-tropez.jpg"
+  },
+  {
+    "id": 6,
+    "periode": "Oktober 2026",
+    "titel": "DTM Hockenheim",
+    "beschrijving": "Met de leden van de Washmountain richting de DTM race van Hockenheim.",
+    "status": "bevestigd",
+    "afbeelding": "images/evenementen/dtm-hockenheim.jpeg"
+  }
+]

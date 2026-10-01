@@ -1,0 +1,65 @@
+[
+    {
+        "id": "home",
+        "name": "Dashboard (Home)",
+        "icon": "fa-house",
+        "file": "index.html",
+        "category": "Hoofdmenu"
+    },
+    {
+        "id": "blog",
+        "name": "Blog & Nieuws",
+        "icon": "fa-newspaper",
+        "file": "blog.html",
+        "category": "Hoofdmenu"
+    },
+    {
+        "id": "games",
+        "name": "Games Arcade",
+        "icon": "fa-gamepad",
+        "file": "games.html",
+        "category": "Community"
+    },
+    {
+        "id": "files",
+        "name": "Leden Files",
+        "icon": "fa-folder-open",
+        "file": "files.html",
+        "category": "Community"
+    },
+    {
+        "id": "evenementen",
+        "name": "Evenementen",
+        "icon": "fa-calendar-check",
+        "file": "evenementen.html",
+        "category": "Planning"
+    },
+    {
+        "id": "planning",
+        "name": "Projectplanning",
+        "icon": "fa-timeline",
+        "file": "planning.html",
+        "category": "Planning"
+    },
+    {
+        "id": "diensten",
+        "name": "Diensten",
+        "icon": "fa-clipboard-list",
+        "file": "diensten.html",
+        "category": "Organisatie"
+    },
+    {
+        "id": "radio",
+        "name": "Live Radio & DJ",
+        "icon": "fa-radio",
+        "file": "radio.html",
+        "category": "Media"
+    },
+    {
+        "id": "app",
+        "name": "App",
+        "icon": "fa-mobile-screen",
+        "file": "app.html",
+        "category": "Media"
+    }
+]

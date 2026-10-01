@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "slug": "washmountain-v3-live",
+    "title": "Washmountain Website Versie 3 Live met CMS!",
+    "category": "Aankondiging",
+    "date": "2026-10-01",
+    "author": "Noah Smolenaars",
+    "image": "images/evenementen/dtm-hockenheim.jpeg",
+    "status": "published",
+    "excerpt": "Met trots presenteren we versie 3 van het Washmountain platform, nu compleet uitgerust met een eigen CMS beheersysteem, blog overzicht en realtime partnerbalk.",
+    "content": "<p>Welkom bij versie 3 van de Washmountain community website! Na maanden van bouwen en testen is het nieuwe platform officieel in de lucht.</p><h3>Wat is er nieuw in Versie 3?</h3><p>In deze update hebben we een krachtig headless beheersysteem (CMS) geïntegreerd. Hiermee kunnen beheerders direct:</p><ul><li>Nieuwe blogartikelen en verslagen publiceren</li><li>Teksten en koppen op de homepage aanpassen</li><li>Partner- en sponsorlogo's in de bewegende balk beheren</li><li>Live previews bekijken en wijzigingen direct opslaan</li></ul><p>Bovendien blijven alle vertrouwde features zoals de Arcade Games, het Dienstenrooster, Discord Radio integratie en de Leden Files razendsnel en direct beschikbaar.</p>"
+  },
+  {
+    "id": "2",
+    "slug": "c1-circuit-zolder-voorbereiding",
+    "title": "C1 op Circuit Zolder: Racevoorbereidingen in volle gang",
+    "category": "Races & Tracks",
+    "date": "2026-04-11",
+    "author": "Washmountain Crew",
+    "image": "images/evenementen/c1-zolder.jpeg",
+    "status": "published",
+    "excerpt": "Het legendarische asfalt van Circuit Zolder wacht op ons. De Citroën C1 van Mr. Worldwide wordt klaargestoomd voor de ultieme shakedown.",
+    "content": "<p>De datum staat rood omcirkeld in de agenda: 11 april 2026. Washmountain trekt naar het Belgische Circuit Zolder voor een dag vol adrenaline, bandengeur en strakke rondetijden.</p><h3>De Voorbereiding</h3><p>De Citroën C1 heeft de nodige upgrades gekregen: vers rubber, geoptimaliseerde remmen en een gewichtsreductie die elk pk optimaal benut. In de Washmountain Arcade kun je alvast je pitstop reactietijd trainen en rondetijden vergelijken.</p><p>Houd de website in de gaten voor live timing en verslagen direct vanaf de pitmuur!</p>"
+  },
+  {
+    "id": "3",
+    "slug": "zomertrip-saint-tropez-planning",
+    "title": "Roadtrip & Weekendtrip: Richting de Côte d'Azur",
+    "category": "Events",
+    "date": "2026-06-15",
+    "author": "Tygo Kerckhoffs",
+    "image": "images/evenementen/port-saint-tropez.jpg",
+    "status": "published",
+    "excerpt": "De plannen voor de epische zomertrip naar het zuiden krijgen vorm. Bekijk de route, overnachtingen en geplande bergpassen.",
+    "content": "<p>Zon, kronkelende bergwegen en een konvooi Washmountain auto's: de voorbereidingen voor onze roadtrip zijn begonnen.</p><p>De route voert langs schitterende bergpassen naar de Franse kust. In de planningsectie en via het dienstensysteem kunnen leden hun aanwezigheid bevestigen en taken coördineren.</p>"
+  },
+  {
+    "id": "4",
+    "slug": "washmountain-radio-discord-update",
+    "title": "Washmountain Radio 24/7 Live op Discord",
+    "category": "Media",
+    "date": "2026-09-15",
+    "author": "Redactie",
+    "image": "images/evenementen/rode-golf-cabrio.webp",
+    "status": "published",
+    "excerpt": "Muziek streamen naar ons Discord spraakkanaal is nu nog makkelijker met het vernieuwde DJ Dashboard op de site.",
+    "content": "<p>Onze eigen radio-stream draait non-stop! Met het vernieuwde DJ-paneel op de website kun je nu live tracks aanvragen, de huidige playlist inzien en beats droppen in de Discord voice call.</p><p>Check de Radio-pagina via het menu en neem plaats achter de digitale draaitafels.</p>"
+  }
+]

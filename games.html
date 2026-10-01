@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Washmountain — Games & Arcade</title>
+  <link rel="stylesheet" href="css/style.css?v=13.0">
+  <link rel="icon" type="image/png" href="images/Website logo linksboven url.png">
+</head>
+<body>
+  <div class="rainbow-entrance"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <header class="site-header">
+    <nav class="main-nav">
+      <div class="nav-container container">
+        <a href="index.html" class="navbar-logo">
+          <img src="images/Website logo linksboven url.png" alt="Washmountain logo">
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="blog.html">Nieuws & Blog 📰</a></li>
+          <li><a href="games.html" class="active">Games 🎮</a></li>
+          <li><a href="files.html">Files</a></li>
+          <li><a href="evenementen.html">Evenementen</a></li>
+          <li><a href="planning.html">Planning</a></li>
+          <li><a href="diensten.html">Diensten</a></li>
+          <li><a href="radio.html">Radio</a></li>
+          <li><a href="app.html">App</a></li>
+          <li class="mobile-only-li"><a href="login.html" class="btn-login-nav">Inloggen</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="admin/" class="btn-login-nav" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); margin-right: 8px;">CMS Login</a>
+          <a href="login.html" class="btn-login-nav logged-out-only">Inloggen</a>
+          <div class="user-profile-bubble logged-in-only" title="Mijn Account">
+            <div class="user-avatar-small"><span class="user-initials">?</span></div>
+          </div>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="arcade-header">
+      <div class="arcade-badge">
+        <span>🕹️</span> Washmountain Arcade
+      </div>
+      <h1 class="section-title">
+        Exclusieve <span class="gradient-text">Community Games</span>
+      </h1>
+      <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto; font-size: 1.1rem;">
+        Ontspan, race met de C1 van Mr. Worldwide over Zolder, test je pitstop-reactietijd of daag je parate kennis uit in de Washmountain quiz!
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="game-nav-tabs">
+      <button class="game-tab-btn active" data-game="c1">
+        <span>🏎️</span> C1 Circuit Sprint
+      </button>
+      <button class="game-tab-btn" data-game="pitstop">
+        <span>⏱️</span> Pitstop Reactietest
+      </button>
+      <button class="game-tab-btn" data-game="memory">
+        <span>🧠</span> Leden Memory
+      </button>
+      <button class="game-tab-btn" data-game="quiz">
+        <span>❓</span> Community Quiz
+      </button>
+    </div>
+
+    <!-- Game 1: C1 Racer -->
+    <div id="game-c1" class="game-section-panel arcade-game-container">
+      <div class="game-hud">
+        <div class="hud-pill">Score: <span id="c1-score">0</span></div>
+        <div class="hud-pill">Snelheid: <span id="c1-speed">0 km/u</span></div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="c1-canvas"></canvas>
+      </div>
+
+      <!-- Mobile Touch Controls -->
+      <div class="game-touch-controls">
+        <button class="touch-arrow-btn" id="touch-left">⬅️ Links</button>
+        <button class="touch-arrow-btn" id="touch-right">Rechts ➡️</button>
+      </div>
+
+      <div class="game-controls-bar">
+        <button id="c1-btn-start" class="bento-btn bento-btn-primary">
+          Start Race (Spatiebalk)
+        </button>
+      </div>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 14px;">
+        💡 Tip: Gebruik de pijltjestoetsen of A / D om te sturen. Pak DrPepper blikjes (+150 pts)!
+      </p>
+    </div>
+
+    <!-- Game 2: Pitstop Reaction Test -->
+    <div id="game-pitstop" class="game-section-panel arcade-game-container" style="display: none;">
+      <div class="pitstop-box">
+        <h3 style="font-size: 24px; color: #ffffff; margin-bottom: 8px;">DTM & F1 Startlichten Test</h3>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          De 5 startlichten springen één voor één aan. Zodra ze allemaal tegelijk DOVEN, klik je zo snel mogelijk!
+        </p>
+
+        <!-- 5 Light Gantry -->
+        <div class="pitstop-gantry">
+          <div class="gantry-light-unit" id="gantry-col-0">
+            <div class="gantry-bulb"></div>
+            <div class="gantry-bulb"></div>
+          </div>
+          <div class="gantry-light-unit" id="gantry-col-1">
+            <div class="gantry-bulb"></div>
+            <div class="gantry-bulb"></div>
+          </div>
+          <div class="gantry-light-unit" id="gantry-col-2">
+            <div class="gantry-bulb"></div>
+            <div class="gantry-bulb"></div>
+          </div>
+          <div class="gantry-light-unit" id="gantry-col-3">
+            <div class="gantry-bulb"></div>
+            <div class="gantry-bulb"></div>
+          </div>
+          <div class="gantry-light-unit" id="gantry-col-4">
+            <div class="gantry-bulb"></div>
+            <div class="gantry-bulb"></div>
+          </div>
+        </div>
+
+        <div id="pitstop-action" class="pitstop-action-area">
+          <div id="pitstop-label" style="font-size: 18px; font-weight: 700; color: #ffffff;">
+            Klik hier of druk op [SPATIE] om te beginnen
+          </div>
+          <div id="pitstop-result" class="pitstop-result-display">--- ms</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 3: Memory Game -->
+    <div id="game-memory" class="game-section-panel arcade-game-container" style="display: none;">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <h3 style="font-size: 24px; color: #ffffff; margin-bottom: 8px;">Washmountain Leden Memory</h3>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          Vind alle paren van de leden en iconische beelden zo snel mogelijk!
+        </p>
+      </div>
+
+      <div class="game-hud" style="max-width: 580px;">
+        <div class="hud-pill">Zetten: <span id="memory-moves">0</span></div>
+        <div class="hud-pill">Tijd: <span id="memory-time">00:00</span></div>
+        <button id="memory-restart" class="bento-btn bento-btn-secondary" style="padding: 6px 14px; font-size: 12px; margin-top: 0;">
+          Opnieuw
+        </button>
+      </div>
+
+      <div id="memory-board" class="memory-board"></div>
+    </div>
+
+    <!-- Game 4: Quiz -->
+    <div id="game-quiz" class="game-section-panel arcade-game-container" style="display: none;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h3 style="font-size: 24px; color: #ffffff; margin-bottom: 8px;">Washmountain Trivia Quiz</h3>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          Hoe goed ken jij de president, de burgemeester, onze tradities en de evenementen?
+        </p>
+      </div>
+
+      <div class="quiz-wrapper" id="quiz-body"></div>
+    </div>
+
+    <!-- Hall of Fame -->
+    <div class="arcade-hall-of-fame" style="margin: 0 auto 60px;">
+      <div class="hall-header">
+        <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+          <span>🎖️</span> Jouw Persoonlijke Records
+        </h4>
+        <span style="font-size: 12px; color: var(--text-muted);">Opgeslagen in browser</span>
+      </div>
+      <div class="hall-grid">
+        <div class="hall-item">
+          <div class="hall-item-title">C1 Circuit Sprint</div>
+          <div class="hall-item-val" id="hall-c1">0 pts</div>
+        </div>
+        <div class="hall-item">
+          <div class="hall-item-title">Pitstop Reactietest</div>
+          <div class="hall-item-val" id="hall-reaction">Geen</div>
+        </div>
+        <div class="hall-item">
+          <div class="hall-item-title">Beste Memory Tijd</div>
+          <div class="hall-item-val" id="hall-memory">Geen</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <span>Officiële website — Washmountain 2026</span>
+      <a href="https://discord.gg/RZbSwuJS4W" target="_blank" class="discord-link" aria-label="Join our Discord">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993.051.072.15.087.23.05.003-.001.007-.002.01-.003a19.846 19.846 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/>
+      </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=13.0"></script>
+  <script src="js/games.js?v=13.0"></script>
+</body>
+</html>

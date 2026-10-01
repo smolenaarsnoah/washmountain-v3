@@ -1,0 +1,44 @@
+[
+  {
+    "_comment": "Om dit bestand te updaten: deel de inhoud van dit JSON bestand met Claude en vraag hem een nieuw item toe te voegen. Kopieer de output terug naar dit bestand en push naar GitHub."
+  },
+  {
+    "id": 1,
+    "naam": "C1 op circuit Zolder",
+    "datum": "2026-04-11",
+    "locatie": "Circuit Zolder, België",
+    "beschrijving": "Op het circuit met de Citroën C1 van Mr. Worldwide.",
+    "afbeelding": "images/evenementen/c1-zolder.jpeg",
+    "voorbij": false
+  },
+  {
+    "id": 2,
+    "naam": "Viering Verjaardag Burgemeester",
+    "datum": "2026-04-11",
+    "locatie": "Hoofdkantoor der Washmountain",
+    "beschrijving": "Viering van de eerdere verjaardag van de Burgemeester. Dit wordt gedaan in een special diner: \"Kaasfondue van Lau\"",
+    "afbeelding": "images/evenementen/kaasfondue.webp",
+    "voorbij": false
+  },
+  {
+    "id": 5,
+    "naam": "Zomervakantie Saint-Tropez",
+    "datum": "2026-07-15",
+    "datumEind": "2026-07-22",
+    "locatie": "Saint-Tropez, Frankrijk",
+    "beschrijving": "Deze vakantie kan vanwege omstandigheden niet doorgaan.",
+    "afbeelding": "images/evenementen/port-saint-tropez.jpg",
+    "voorbij": false,
+    "gecanceld": true
+  },
+  {
+    "id": 6,
+    "naam": "DTM Hockenheim",
+    "datum": "2026-10-10",
+    "datumEind": "2026-10-11",
+    "locatie": "Hockenheimring, Duitsland",
+    "beschrijving": "Met de leden van de Washmountain richting de DTM race van Hockenheim.",
+    "afbeelding": "images/evenementen/dtm-hockenheim.jpeg",
+    "voorbij": false
+  }
+]

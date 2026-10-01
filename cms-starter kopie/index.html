@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-cms-id="home-seo-title">Keuken Inspiratie — De Gids voor Jouw Droomkeuken</title>
+    <meta name="description" data-cms-id="home-seo-desc" content="Ontdek de nieuwste keukentrends, materialen, kookeiland tips en inspiratie voor jouw keukenverbouwing.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="img/logo.svg" alt="Logo" data-cms-id="logo-image">
+            </a>
+
+            <!-- Desktop Menu (wordt dynamisch gerenderd door cms-client.js) -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobiel Menu Knop -->
+            <div class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobiel Menu Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-close" id="mobile-close">&times;</div>
+        <a href="index.html" class="active">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container container-narrow">
+            <span class="hero-tag" data-cms-id="home-hero-tag">De Gids voor Jouw Droomkeuken</span>
+            <h1 data-cms-id="home-hero-title">Laat je inspireren door de mooiste keukentrends & tips</h1>
+            <p data-cms-id="home-hero-subtitle">Van moderne kookeilanden tot slimme opbergoplossingen en budgetvriendelijke keukenrenovaties.</p>
+            <div class="hero-buttons">
+                <a href="blog.html" class="btn btn-primary" data-cms-id="home-hero-btn1-text">Bekijk Artikelen</a>
+                <a href="contact.html" class="btn btn-outline" data-cms-id="home-hero-btn2-text">Neem Contact Op</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recente Artikelen Sectie -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Uitgelichte Artikelen</h2>
+                <p>De populairste gidsen en trends van dit moment</p>
+            </div>
+
+            <!-- Blog Grid (Automatisch geladen uit articles.json) -->
+            <div class="articles-grid" id="blog-grid">
+                <div style="text-align: center; grid-column: 1/-1; padding: 40px; color: var(--text-muted);">
+                    Artikelen laden...
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="blog.html" class="btn btn-outline">Alle artikelen bekijken <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Over Ons / Introductie Sectie -->
+    <section class="section">
+        <div class="container container-narrow" style="text-align: center;">
+            <div class="section-title">
+                <h2 data-cms-id="home-about-title">Onafhankelijk advies & pure keukeninspiratie</h2>
+                <p data-cms-id="home-about-text" style="max-width: 640px; margin: 0 auto; line-height: 1.8;">
+                    Welkom bij Keuken Inspiratie. Wij delen actuele inzichten, materiaalgidsen en stylingideeën om jouw keuken om te toveren tot het kloppende hart van je woning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="img/logo.svg" alt="Logo" style="height: 34px; margin-bottom: 16px; filter: brightness(0) invert(1);">
+                <p data-cms-id="footer-tagline">Jouw dagelijkse inspiratiebron voor keukenstyling, renovatie en innovatie.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Navigatie</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Recente Blogs</h3>
+                <div id="footer-recent-blogs">
+                    <!-- Dynamisch geladen via cms-client.js -->
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p style="margin-bottom: 8px;">Vragen of tips?</p>
+                <a href="mailto:info@keukeninspiratie.nl" data-cms-id="footer-email" style="font-weight: 600; color: white;">info@keukeninspiratie.nl</a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; <span id="footer-year"></span> Keuken Inspiratie &mdash; Alle rechten voorbehouden</span>
+            <a href="admin/index.html" style="color: var(--text-light); text-decoration: none; opacity: 0.6; font-size: 0.75rem;"><i class="fa-solid fa-lock"></i> Beheer</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="admin/admin-config.js"></script>
+    <script src="js/cms-client.js"></script>
+</body>
+</html>
