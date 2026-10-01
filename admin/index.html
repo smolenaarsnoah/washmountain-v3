@@ -595,7 +595,7 @@
                 <p style="color: var(--text-muted); font-size: 0.85rem;">Beheerportaal • Veilige Toegang</p>
             </div>
             
-            <form id="loginForm">
+            <form id="loginForm" onsubmit="event.preventDefault(); if(window.handleLoginSubmit) window.handleLoginSubmit(event);">
                 <div class="input-group">
                     <label>Gebruikersnaam</label>
                     <div class="input-wrapper">
@@ -771,7 +771,7 @@
                             <button onclick="togglePreview()" style="background:#fee2e2; color:#ef4444; border:1px solid #fecaca; padding:6px 12px; border-radius:6px; font-weight:700; cursor:pointer; font-size:0.7rem;">Preview sluiten</button>
                         </div>
                     </div>
-                    <iframe id="preview-iframe" src="about:blank" onload="broadcastUpdate()"></iframe>
+                    <iframe id="preview-iframe" src="about:blank" onload="if(window.broadcastUpdate)broadcastUpdate()"></iframe>
                 </div>
     
                 <!-- Lege views voor Dashboard en SEO -->
@@ -3541,18 +3541,18 @@
             }
         }
 
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        async function handleLoginSubmit(e) {
+            if (e && e.preventDefault) e.preventDefault();
             try {
-                const user = document.getElementById('username').value.trim();
-                const pass = document.getElementById('password').value.trim();
+                const user = (document.getElementById('username').value || '').trim();
+                const pass = (document.getElementById('password').value || '').trim();
                 const loginBox = document.getElementById('loginBox');
                 const btn = document.getElementById('loginBtn');
 
-                loginBox.classList.remove('shake');
+                if (loginBox) loginBox.classList.remove('shake');
                 
                 // Zorg ervoor dat we de nieuwste credentials hebben geladen
-                await loadAllUsers();
+                try { await loadAllUsers(); } catch(uErr) {}
                 
                 let validUser = null;
                 // Directe fallback controle voor Admin / JohnJanssen
@@ -3572,8 +3572,8 @@
                 }
 
                 if (validUser) {
-                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
-                    startProgress();
+                    if (btn) btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+                    try { startProgress(); } catch(pErr) {}
                     
                     // Probeer gecodeerde GitHub config te laden en te ontcijferen
                     try {
@@ -3603,21 +3603,27 @@
                     localStorage.setItem('sw_auth_status', 'logged_in');
                     localStorage.setItem('sw_auth_user', validUser);
                     setTimeout(() => { 
-                        endProgress(); 
+                        try { endProgress(); } catch(e) {}
                         checkAuth(); 
-                        btn.innerHTML = 'Inloggen <i class="fa-solid fa-arrow-right"></i>'; 
-                    }, 800);
+                        if (btn) btn.innerHTML = 'Inloggen <i class="fa-solid fa-arrow-right"></i>'; 
+                    }, 400);
                 } else {
-                    void loginBox.offsetWidth;
-                    loginBox.classList.add('shake');
-                    document.getElementById('password').value = '';
+                    if (loginBox) {
+                        void loginBox.offsetWidth;
+                        loginBox.classList.add('shake');
+                    }
+                    const passEl = document.getElementById('password');
+                    if (passEl) passEl.value = '';
                     showNotification("Onjuiste inloggegevens", "error");
                 }
             } catch (err) {
                 console.error("Login form error:", err);
                 alert("Er is een technische fout opgetreden bij het inloggen.");
             }
-        });
+        }
+        window.handleLoginSubmit = handleLoginSubmit;
+        const loginFormEl = document.getElementById('loginForm');
+        if (loginFormEl) loginFormEl.addEventListener('submit', handleLoginSubmit);
 
         document.getElementById('logout-btn').addEventListener('click', () => {
             localStorage.removeItem('sw_auth_status');
@@ -6325,21 +6331,21 @@
             const title = document.getElementById('dienst-title').value.trim();
             const slug  = document.getElementById('dienst-slug').value.trim();
             if (!title || !slug) return showNotification('Vul minimaal een titel en URL in', 'error');
-            showNotification(`✅ "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
+            showNotification(`[OK] "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
         }
 
         function publishLanding() {
             const title = document.getElementById('lp-title').value.trim();
             const slug  = document.getElementById('lp-slug').value.trim();
             if (!title || !slug) return showNotification('Vul minimaal een paginanaam en URL in', 'error');
-            showNotification(`✅ "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
+            showNotification(`[OK] "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
         }
 
         function publishPortfolioCase() {
             const title = document.getElementById('portfolio-title').value.trim();
             const slug  = document.getElementById('portfolio-slug').value.trim();
             if (!title || !slug) return showNotification('Vul minimaal een titel en URL in', 'error');
-            showNotification(`✅ "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
+            showNotification(`[OK] "${title}" is opgeslagen als concept. Koppel GitHub om te publiceren.`, 'info');
         }
 
         function initQuill() {
@@ -6385,7 +6391,7 @@
             localStorage.setItem('sw_draft_content', JSON.stringify(siteContent));
             localStorage.setItem('sw_draft_ts', Date.now());
             updateDraftBadge(Object.keys(siteContent).length);
-            showNotification('💾 Concept opgeslagen in browser');
+            showNotification(' Concept opgeslagen in browser');
         }
 
         function loadDraftIfExists() {
@@ -6642,7 +6648,7 @@
             localStorage.setItem('sw_articles_draft', JSON.stringify(articles));
 
             if (!publish) {
-                showNotification('💾 Artikel concept opgeslagen');
+                showNotification(' Artikel concept opgeslagen');
                 renderArticleList();
                 return;
             }
@@ -6657,7 +6663,7 @@
 
             try {
                 await pushArticlesToGitHub();
-                showNotification('🚀 Artikel gepubliceerd! Cloudflare rebuildt...');
+                showNotification(' Artikel gepubliceerd! Cloudflare rebuildt...');
                 addUpdateLog('Publicatie', `Blogartikel "${data.title}" gepubliceerd.`);
                 switchMainView('blog-list');
             } catch(e) {
@@ -6802,7 +6808,7 @@
                     siteContent['navigation-footer-links'] = currentFooterLinks;
                 }
                 
-                showNotification(`🚀 Pagina "${page.name}" succesvol verwijderd!`);
+                showNotification(` Pagina "${page.name}" succesvol verwijderd!`);
                 addUpdateLog('Verwijderen', `Pagina "${page.name}" verwijderd.`);
                 
                 // Selecteer 'home' en render sidebar/list
@@ -7118,7 +7124,7 @@
                         sha
                     })
                 });
-                showNotification('🚀 Footer en Menu gepubliceerd naar GitHub!');
+                showNotification(' Footer en Menu gepubliceerd naar GitHub!');
                 addUpdateLog('Footer & Menu', 'Navigatie en footer links gepubliceerd.');
             } catch(e) { 
                 showNotification('Fout bij publiceren: ' + e.message, 'error'); 
@@ -10348,7 +10354,7 @@
                 let benefitsHtml = '';
                 
                 vdlTitles.forEach((v, i) => {
-                    const icon = vdlIcons[i]?.value || '⚡';
+                    const icon = vdlIcons[i]?.value || '';
                     const t = v.value.trim();
                     const txt = vdlTexts[i]?.value || '';
                     if (t) {
@@ -10447,7 +10453,7 @@
                 renderSidebar();
                 renderFolderTree();
                 
-                showNotification(`🚀 Dienstpagina "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
+                showNotification(` Dienstpagina "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
                 switchMainView('blog-list');
             } catch(e) {
                 showNotification("Publiceren mislukt: " + e.message, "error");
@@ -10513,15 +10519,15 @@
                 // 4. Format USP section HTML
                 let uspHtml = '';
                 if (show_usp) {
-                    const usp1Icon = document.getElementById('lp-usp1-icon').value || '⚡';
+                    const usp1Icon = document.getElementById('lp-usp1-icon').value || '';
                     const usp1Title = document.getElementById('lp-usp1-title').value.trim();
                     const usp1Text = document.getElementById('lp-usp1-text').value.trim();
                     
-                    const usp2Icon = document.getElementById('lp-usp2-icon').value || '📈';
+                    const usp2Icon = document.getElementById('lp-usp2-icon').value || '';
                     const usp2Title = document.getElementById('lp-usp2-title').value.trim();
                     const usp2Text = document.getElementById('lp-usp2-text').value.trim();
                     
-                    const usp3Icon = document.getElementById('lp-usp3-icon').value || '🤝';
+                    const usp3Icon = document.getElementById('lp-usp3-icon').value || '';
                     const usp3Title = document.getElementById('lp-usp3-title').value.trim();
                     const usp3Text = document.getElementById('lp-usp3-text').value.trim();
                     
@@ -10671,7 +10677,7 @@
                 renderSidebar();
                 renderFolderTree();
                 
-                showNotification(`🚀 Landingspagina "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
+                showNotification(` Landingspagina "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
                 switchMainView('blog-list');
             } catch(e) {
                 showNotification("Publiceren mislukt: " + e.message, "error");
@@ -10799,7 +10805,7 @@
                 renderSidebar();
                 renderFolderTree();
                 
-                showNotification(`🚀 Portfolio Case "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
+                showNotification(` Portfolio Case "${title}" met succes gepubliceerd! Cloudflare wordt bijgewerkt...`);
                 switchMainView('blog-list');
             } catch(e) {
                 showNotification("Publiceren mislukt: " + e.message, "error");
