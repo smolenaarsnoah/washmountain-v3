@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Washmountain — Evenementen</title>
+  <title data-cms-id="evenementen-seo-title">Washmountain — Evenementen & Ritten</title>
+  <meta name="description" data-cms-id="evenementen-seo-desc" content="Blijf op de hoogte van alle geplande evenementen, circuitdagen en bijeenkomsten.">
   <link rel="stylesheet" href="css/style.css?v=11.0">
   <link rel="icon" type="image/png" href="images/Website logo linksboven url.png">
 </head>
@@ -45,14 +46,14 @@
   <main>
   <section class="page-hero">
     <div class="container">
-      <span class="badge-text" style="color: var(--accent-orange);">Washmountain Events</span>
-      <h1>Aankomende <span class="gradient-text">Evenementen</span></h1>
-      <p>Blijf op de hoogte van alle feestjes en bijeenkomsten bij Washmountain.</p>
+      <span class="badge-text" data-cms-id="evenementen-span-badge" style="color: var(--accent-orange);">Washmountain Events</span>
+      <h1 data-cms-id="evenementen-h1-title">Aankomende <span class="gradient-text">Evenementen</span></h1>
+      <p data-cms-id="evenementen-p-lead">Blijf op de hoogte van alle feestjes, ritten en bijeenkomsten bij Washmountain.</p>
     </div>
   </section>
 
     <section class="section">
-      <h2 class="section-title">Aankomend</h2>
+      <h2 class="section-title" data-cms-id="evenementen-h2-title">Aankomend</h2>
       <div id="events-upcoming" class="card-grid cols-3">
         <!-- Loaded from evenementen.json -->
       </div>
@@ -83,5 +84,6 @@
   </footer>
 
   <script src="js/main.js?v=11.0"></script>
+  <script src="js/cms-client.js?v=1.0"></script>
 </body>
 </html>

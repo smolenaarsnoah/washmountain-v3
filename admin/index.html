@@ -4008,22 +4008,32 @@
             const DEFAULT_SECTIONS_MAP = {
                 'home': [
                     { id: 'hero', name: 'Hero Sectie' },
-                    { id: 'intro', name: 'Introductie' },
-                    { id: 'vision', name: 'Onze Visie (USP\'s)' },
-                    { id: 'cta', name: 'Call to Action (Onderaan)' }
+                    { id: 'intro', name: 'Introductie Blokken' },
+                    { id: 'arcade', name: 'Arcade Banner' },
+                    { id: 'diensten', name: 'Diensten Banner' },
+                    { id: 'radio', name: 'Radio Banner' },
+                    { id: 'leden', name: 'Leden Banner' },
+                    { id: 'events', name: 'Evenementen Blok' }
                 ],
-                'diensten': [
-                    { id: 'diensten', name: 'Diensten Overzicht' },
-                    { id: 'cta', name: 'Samenwerking CTA (Onderaan)' }
+                'games': [
+                    { id: 'hero', name: 'Arcade Hero & Intro' },
+                    { id: 'c1', name: 'C1 Circuit Sprint' },
+                    { id: 'pitstop', name: 'Pitstop Reactietest' }
                 ],
-                'portfolio': [
-                    { id: 'portfolio', name: 'Portfolio Projecten' }
+                'files': [
+                    { id: 'hero', name: 'Leden Hero & Intro' },
+                    { id: 'leden', name: 'Algemene Leden Sectie' }
                 ],
-                'roadmap': [
-                    { id: 'roadmap', name: 'Roadmap Bord' }
+                'evenementen': [
+                    { id: 'hero', name: 'Evenementen Hero & Intro' },
+                    { id: 'events', name: 'Aankomende Evenementen' }
                 ],
-                'contact': [
-                    { id: 'contact', name: 'Contact Formulier & Details' }
+                'radio': [
+                    { id: 'hero', name: 'Radio Hero & DJ Intro' }
+                ],
+                'app': [
+                    { id: 'hero', name: 'App Hero & Intro' },
+                    { id: 'card', name: 'App Preview Kaart' }
                 ]
             };
 
@@ -5130,8 +5140,8 @@
         // --- 4. GitHub API ---
         let gh = { owner: '', repo: '', pat: '' };
         function loadSettings() {
-            gh.owner = localStorage.getItem('gh_owner') || '';
-            gh.repo = localStorage.getItem('gh_repo') || '';
+            gh.owner = localStorage.getItem('gh_owner') || (window.CMS_CONFIG && window.CMS_CONFIG.githubOwner) || '';
+            gh.repo = localStorage.getItem('gh_repo') || (window.CMS_CONFIG && window.CMS_CONFIG.githubRepo) || '';
             gh.pat = localStorage.getItem('gh_pat') || '';
         }
 

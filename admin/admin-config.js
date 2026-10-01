@@ -68,6 +68,8 @@ window.CMS_CONFIG = {
     ],
 
     companyName: "Washmountain Community",
+    githubOwner: "smolenaarsnoah",
+    githubRepo: "washmountain-v3",
     companyKvk: "",
     companyBtw: "",
     companyIban: "",
