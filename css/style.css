@@ -3052,3 +3052,24 @@ main {
         padding: 14px 10px;
     }
 }
+
+/* ===== Footer Beheer CMS Link ===== */
+.footer-cms-link {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-cms-link:hover {
+    color: #60a5fa !important;
+    border-color: rgba(96, 165, 250, 0.4);
+    background: rgba(59, 130, 246, 0.12);
+}
+

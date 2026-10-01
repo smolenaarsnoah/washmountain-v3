@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-cms-id="home-seo-title">Washmountain — Dashboard & Community</title>
-  <meta name="description" data-cms-id="home-seo-desc" content="Welkom bij het centrale platform van de Washmountain community. Coördineer evenementen, beschikbaarheid, live radio en speel exclusieve games.">
+  <meta name="description" data-cms-id="home-seo-desc" content="Welkom bij het centrale platform van de Washmountain community. Coördineer evenementen, live radio en speel exclusieve games.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css?v=13.0">
   <link rel="icon" type="image/png" href="images/Website logo linksboven url.png">
@@ -23,19 +23,14 @@
         </a>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Dashboard</a></li>
-          <li><a href="blog.html">Nieuws & Blog 📰</a></li>
           <li><a href="games.html">Games 🎮</a></li>
           <li><a href="files.html">Files</a></li>
           <li><a href="evenementen.html">Evenementen</a></li>
-          <li><a href="planning.html">Planning</a></li>
-          <li><a href="diensten.html">Diensten</a></li>
           <li><a href="radio.html">Radio</a></li>
           <li><a href="app.html">App</a></li>
-          <li class="mobile-only-li"><a href="admin/" class="btn-login-nav" style="margin-bottom: 8px;">CMS Login</a></li>
           <li class="mobile-only-li"><a href="login.html" class="btn-login-nav">Inloggen</a></li>
         </ul>
         <div class="nav-actions">
-          <a href="admin/" class="btn-login-nav" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); margin-right: 8px;">CMS Login</a>
           <a href="login.html" class="btn-login-nav logged-out-only">Inloggen</a>
           <div class="user-profile-bubble logged-in-only" title="Mijn Account">
             <div class="user-avatar-small"><span class="user-initials">?</span></div>
@@ -92,24 +87,16 @@
         </h1>
 
         <p class="dashboard-welcome-lead" data-cms-id="home-p-hero-lead">
-          Welkom bij het centrale platform van de Washmountain community. Dit is de digitale thuisbasis waar we onze evenementen coördineren, beschikbaarheid bijhouden via het dienstensysteem, live radio streamen naar onze Discord-bot en exclusieve games spelen.
+          Welkom bij het centrale platform van de Washmountain community. Dit is de digitale thuisbasis waar we onze evenementen coördineren, live radio streamen naar onze Discord-bot en exclusieve games spelen.
         </p>
 
         <!-- Explanation feature cards -->
-        <div class="dashboard-features-grid">
+        <div class="dashboard-features-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div class="dashboard-feature-item">
             <div class="dashboard-feature-icon">🎮</div>
             <div>
               <h4 data-cms-id="home-h4-intro-arcade">Arcade & Games</h4>
               <p data-cms-id="home-p-intro-arcade">Race met de C1 over Zolder, test je pitstop-reactietijd en speel de community quiz.</p>
-            </div>
-          </div>
-
-          <div class="dashboard-feature-item">
-            <div class="dashboard-feature-icon">📋</div>
-            <div>
-              <h4 data-cms-id="home-h4-intro-diensten">Dienstensysteem</h4>
-              <p data-cms-id="home-p-intro-diensten">Meld je in realtime aan voor diensten of geef je aanwezigheid door via Firebase.</p>
             </div>
           </div>
 
@@ -126,6 +113,14 @@
             <div>
               <h4 data-cms-id="home-h4-intro-leden">Leden & Files</h4>
               <p data-cms-id="home-p-intro-leden">Officiële dossiers en profielen van de President, Burgemeester en leden.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-feature-item">
+            <div class="dashboard-feature-icon">🏎️</div>
+            <div>
+              <h4 data-cms-id="home-h4-intro-events">Evenementen & Ritten</h4>
+              <p data-cms-id="home-p-intro-events">Blijf op de hoogte van alle circuitdagen, roadtrips en bijeenkomsten.</p>
             </div>
           </div>
         </div>
@@ -170,10 +165,7 @@
 
         <div style="display: flex; gap: 12px; margin-top: auto; flex-wrap: wrap;">
           <a href="evenementen.html" class="bento-btn bento-btn-primary">
-            Bekijk Alle Evenementen
-          </a>
-          <a href="planning.html" class="bento-btn bento-btn-secondary">
-            Projectplanning
+            Bekijk Alle Evenementen →
           </a>
         </div>
       </div>
@@ -194,27 +186,8 @@
         </a>
       </div>
 
-      <!-- Widget 3: Diensten & Aanwezigheid (Span 4) -->
-      <div class="bento-card col-4">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <span class="bento-pill-tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">
-            📋 Diensten
-          </span>
-          <span style="font-size: 12px; color: #34d399; font-weight: 700;">Live Systeem</span>
-        </div>
-        <h3 style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;" data-cms-id="home-h3-diensten-title">
-          Beschikbaarheid & Shifts
-        </h3>
-        <p style="color: var(--text-secondary); font-size: 13.5px; margin-bottom: 18px;" data-cms-id="home-p-diensten-desc">
-          Geef direct je aanwezigheid door voor de aankomende diensten of plan zelf een nieuwe dienst in.
-        </p>
-        <a href="diensten.html" class="bento-btn bento-btn-secondary">
-          Open Dienstensysteem
-        </a>
-      </div>
-
-      <!-- Widget 4: Radio Sneak Peek (Span 4) -->
-      <div class="bento-card col-4">
+      <!-- Widget 3: Radio Sneak Peek (Span 6) -->
+      <div class="bento-card col-6">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <span class="bento-pill-tag" style="background: rgba(249, 115, 22, 0.2); color: #fb923c; border-color: rgba(249, 115, 22, 0.3);">
             📻 24/7 Muziek
@@ -232,8 +205,8 @@
         </a>
       </div>
 
-      <!-- Widget 5: Leden Files (Span 4) -->
-      <div class="bento-card col-4">
+      <!-- Widget 4: Leden Files (Span 6) -->
+      <div class="bento-card col-6">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <span class="bento-pill-tag">👥 Ledenoverzicht</span>
           <span style="font-size: 12px; color: var(--text-muted);">6 Actieve Leden</span>
@@ -267,23 +240,6 @@
       </div>
     </section>
 
-    <!-- Community News & Blog Section -->
-    <section class="section" style="margin-bottom: 60px;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
-        <div>
-          <h2 class="section-title" style="margin-bottom: 6px;">Nieuws & Blog</h2>
-          <p style="color: var(--text-muted);">De nieuwste verhalen, raceverslagen en officiële community updates.</p>
-        </div>
-        <a href="blog.html" class="bento-btn bento-btn-secondary" style="margin-top: 0; padding: 8px 16px; font-size: 13px;">
-          Alle artikelen bekijken →
-        </a>
-      </div>
-
-      <div id="home-blog-grid" class="card-grid cols-3">
-        <!-- Loaded from articles.json via cms-client.js -->
-      </div>
-    </section>
-
     <!-- Feedback / Idea Section -->
     <section class="section feedback-section" style="margin-bottom: 60px;">
       <h2 class="section-title">Ideeën voor de website?</h2>
@@ -304,9 +260,9 @@
   <footer class="site-footer">
     <div class="footer-content">
       <span>Officiële website — Washmountain 2026</span>
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <a href="admin/" style="font-size: 13px; color: var(--text-muted); transition: color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='var(--text-muted)'">
-          <i class="fa-solid fa-lock" style="font-size: 11px;"></i> Beheerportaal (CMS)
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="admin/index.html" class="footer-cms-link" style="color: var(--text-muted); font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-solid fa-lock" style="font-size: 11px;"></i> Beheer CMS
         </a>
         <a href="https://discord.gg/RZbSwuJS4W" target="_blank" class="discord-link" aria-label="Join our Discord">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

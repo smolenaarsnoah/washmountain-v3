@@ -8,23 +8,23 @@ window.CMS_CONFIG = {
     // ---------------------------------------------------------------------
     siteName: "Washmountain",
     domain: "washmountain.nl",
-    logoUrlLogin: "../images/logos/washmountain-logo-white.png", // Logo op inlogscherm en sidebar
+    logoUrlLogin: "../images/logos/washmountain-logo-white.png",
     logoUrlInvoice: "images/logos/washmountain-logo.png",
     defaultEmail: "info@washmountain.nl",
     defaultAuthor: "Washmountain Crew",
 
     // ---------------------------------------------------------------------
-    // 2. FEATURE FLAGS (Welke modules zijn zichtbaar?)
+    // 2. FEATURE FLAGS
     // ---------------------------------------------------------------------
     features: {
-        contentEditor: true,   // data-cms-id inline tekst & afbeeldingen bewerken
-        blog: true,            // Blog & nieuws artikelenbeheer met Quill editor
-        partnerLogos: true,    // Partner- en sponsorlogo's in de scrolling marquee balk
+        contentEditor: true,   // data-cms-id teksten bewerken
+        partnerLogos: true,    // Partner- en sponsorlogo's in de marquee balk
+        blog: false,           // Blogs uitgeschakeld
         pageBuilder: true,     // Subpagina's beheren
-        seo: true,             // Meta titels, beschrijvingen en OpenGraph tags
-        analytics: true,       // Analytics & statistieken
-        navigation: true,      // Menu en footer links beheren
-        agencyCRM: false,      // CRM uitgeschakeld voor Washmountain community
+        seo: true,             // Meta titels & Google omschrijvingen
+        analytics: true,       // Statistieken
+        navigation: false,     // Vaste menustructuur
+        agencyCRM: false,      // CRM uitgeschakeld
         users: true            // CMS gebruikers en toegangsrechten
     },
 
@@ -47,27 +47,17 @@ window.CMS_CONFIG = {
     // ---------------------------------------------------------------------
     pagesConfig: [
         { id: 'home', name: 'Dashboard (Home)', icon: 'fa-house', file: 'index.html', category: 'Hoofdmenu' },
-        { id: 'blog', name: 'Blog & Nieuws', icon: 'fa-newspaper', file: 'blog.html', category: 'Hoofdmenu' },
         { id: 'games', name: 'Games Arcade', icon: 'fa-gamepad', file: 'games.html', category: 'Community' },
         { id: 'files', name: 'Leden & Files', icon: 'fa-folder-open', file: 'files.html', category: 'Community' },
-        { id: 'evenementen', name: 'Evenementen', icon: 'fa-calendar-check', file: 'evenementen.html', category: 'Planning' },
-        { id: 'planning', name: 'Projectplanning', icon: 'fa-timeline', file: 'planning.html', category: 'Planning' },
-        { id: 'diensten', name: 'Dienstensysteem', icon: 'fa-clipboard-list', file: 'diensten.html', category: 'Organisatie' },
+        { id: 'evenementen', name: 'Evenementen', icon: 'fa-calendar-check', file: 'evenementen.html', category: 'Community' },
         { id: 'radio', name: 'Live Radio & DJ', icon: 'fa-radio', file: 'radio.html', category: 'Media' },
         { id: 'app', name: 'Washmountain App', icon: 'fa-mobile-screen', file: 'app.html', category: 'Media' }
     ],
 
     // ---------------------------------------------------------------------
-    // 5. PAGE BUILDER TEMPLATES
+    // 5. TEMPLATES
     // ---------------------------------------------------------------------
     templates: [
-        { 
-            id: 'blog', 
-            name: 'Nieuws & Blog Artikel', 
-            icon: 'fa-pen-nib', 
-            file: 'blog-artikel.html',
-            description: 'Plaats een nieuw community update, verslag van een rit of evenementenaankondiging.'
-        },
         { 
             id: 'landing', 
             name: 'Landingspagina / Gids', 
@@ -77,14 +67,10 @@ window.CMS_CONFIG = {
         }
     ],
 
-    // ---------------------------------------------------------------------
-    // 6. ORGANISATIE GEGEVENS
-    // ---------------------------------------------------------------------
     companyName: "Washmountain Community",
     companyKvk: "",
     companyBtw: "",
     companyIban: "",
-
     supabaseUrl: "",
     supabaseKey: ""
 };

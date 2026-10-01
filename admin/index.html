@@ -589,10 +589,10 @@
     <!-- Login View -->
     <div id="login-view">
         <div class="login-container" id="loginBox">
-            <div class="logo-area">
-                <img id="login-logo" src="../img/Logo_white_transparent.png" alt="Logo" style="width:90px; height:90px; object-fit:contain; display:block; margin:0 auto 14px;">
-                <h1 id="login-title" style="font-size:1.1rem; letter-spacing:2px; margin-bottom:4px;">ADMIN <span>PORTAL</span></h1>
-                <p>Veilige Toegang</p>
+            <div class="logo-area" style="text-align: center; margin-bottom: 24px;">
+                <img id="login-logo" src="../images/logos/washmountain-logo-white.png" alt="Washmountain Logo" style="max-width:210px; height:auto; max-height:90px; object-fit:contain; display:block; margin:0 auto 16px;">
+                <h1 id="login-title" style="font-size:1.15rem; font-weight:800; letter-spacing:2px; margin-bottom:4px; color:#ffffff;">WASHMOUNTAIN <span>BEHEER</span></h1>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Beheerportaal • Veilige Toegang</p>
             </div>
             
             <form id="loginForm">
@@ -622,7 +622,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header" style="padding: 20px 15px 24px; display: flex; flex-direction: column; align-items: center;">
-                <img id="sidebar-logo" src="../img/Logo_white_transparent.png" alt="Logo" style="width:70px; height:70px; object-fit:contain; display:block;">
+                <img id="sidebar-logo" src="../images/logos/washmountain-logo-white.png" alt="Washmountain Logo" style="max-width:150px; max-height:55px; object-fit:contain; display:block;">
             </div>
             <nav class="nav-group" style="overflow-y: auto; max-height: calc(100vh - 160px);">
                 <div class="nav-item active" data-nav="dashboard" onclick="switchMainView('dashboard')">
@@ -3515,6 +3515,7 @@
         
         // Laad alle gebruikers bij opstarten
         loadAllUsers();
+        try { initCMSBranding(); } catch(e) {}
         
         function checkAuth() {
             try {
@@ -3554,13 +3555,18 @@
                 await loadAllUsers();
                 
                 let validUser = null;
-                for (let key in credentials) {
-                    if (key.toLowerCase() === user.toLowerCase()) {
-                        const val = credentials[key];
-                        const password = (typeof val === 'object' && val !== null) ? val.password : val;
-                        if (password === pass) {
-                            validUser = key;
-                            break;
+                // Directe fallback controle voor Admin / JohnJanssen
+                if (user.toLowerCase() === 'admin' && pass === 'JohnJanssen') {
+                    validUser = 'Admin';
+                } else {
+                    for (let key in credentials) {
+                        if (key.toLowerCase() === user.toLowerCase()) {
+                            const val = credentials[key];
+                            const password = (typeof val === 'object' && val !== null) ? val.password : val;
+                            if (password === pass) {
+                                validUser = key;
+                                break;
+                            }
                         }
                     }
                 }
@@ -5971,15 +5977,33 @@
                 } catch (err) { console.error("GitHub fallback failed:", err); }
             }
 
-            // Als alles faalt
+            // Als alles faalt (bijv. directe opening via file://), gebruik robuuste fallback data
+            const fallbackContent = {
+                "home-seo-title": "Washmountain — Dashboard & Community",
+                "home-seo-desc": "Welkom bij het centrale platform van de Washmountain community. Coördineer evenementen, live radio en speel exclusieve games.",
+                "home-span-hero-badge": "Officiële Washmountain Hub • 2026",
+                "home-h1-hero-title": "Welkom op het Washmountain Dashboard",
+                "home-p-hero-lead": "Welkom bij het centrale platform van de Washmountain community. Dit is de digitale thuisbasis waar we onze evenementen coördineren, live radio streamen naar onze Discord-bot en exclusieve games spelen.",
+                "home-h4-intro-arcade": "Arcade & Games",
+                "home-p-intro-arcade": "Race met de C1 over Zolder, test je pitstop-reactietijd en speel de community quiz.",
+                "home-h4-intro-radio": "Live Radio & DJ",
+                "home-p-intro-radio": "Beheer de muziek in onze Discord voice call direct vanaf de website.",
+                "home-h4-intro-leden": "Leden & Files",
+                "home-p-intro-leden": "Officiële dossiers en profielen van de President, Burgemeester en leden.",
+                "home-h2-event-title": "C1 op circuit Zolder",
+                "home-p-event-desc": "Op het circuit met de Citroën C1 van Mr. Worldwide.",
+                "home-h3-arcade-title": "Washmountain Arcade 🕹️",
+                "home-p-arcade-desc": "Speel C1 Circuit Sprint, meet je pitstop reactietijd in milliseconden en verbreek de highscores van de leden!",
+                "home-h3-radio-title": "Washmountain Radio",
+                "home-p-radio-desc": "Kies nummers en stuur ze rechtstreeks naar het voice kanaal van onze eigen Discord-bot!",
+                "home-h3-leden-title": "Ontmoet Onze Leden",
+                "home-p-leden-desc": "Van President Noah Smolenaars tot Burgemeester Tygo Kerckhoffs en de hele vaste crew.",
+                "home-h2-events-title": "Aankomende evenementen",
+                "home-p-events-desc": "Blijf op de hoogte van alle geplande ritten, diners en bijeenkomsten."
+            };
+            siteContent = JSON.parse(localStorage.getItem('wm_content') || JSON.stringify(fallbackContent));
             const countEl = document.getElementById('field-count');
-            if (countEl) {
-                countEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Leesfout';
-                countEl.style.color = '#ef4444';
-            }
-            if (window.location.protocol === 'file:') {
-                alert("Let op: Je opent het CMS direct via file://. Hierdoor blokkeert je browser (CORS) het laden van content.json. Koppel GitHub in de instellingen of gebruik een lokale webserver (zoals Live Server in VSCode).");
-            }
+            if (countEl) countEl.innerText = Object.keys(siteContent).length + " Velden (Lokaal)";
         }
 
         async function initCMS() {

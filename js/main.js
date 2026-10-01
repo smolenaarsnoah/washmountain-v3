@@ -81,7 +81,7 @@ function initPage() {
   const path = rawPath.replace(/\.html$/, '') || 'index';
   
   const isLoggedIn = localStorage.getItem('wm_isLoggedIn') === 'true';
-  const protectedPages = ['files', 'diensten', 'lid', 'account'];
+  const protectedPages = ['files', 'lid', 'account'];
 
   if (protectedPages.includes(path) && !isLoggedIn) {
      window.location.href = 'login.html';
@@ -95,10 +95,6 @@ function initPage() {
     initDashboardCountdown();
   } else if (path === 'evenementen') {
     loadEvenementen();
-  } else if (path === 'nieuws') {
-    loadNieuws();
-  } else if (path === 'planning') {
-    loadPlanning();
   } else if (path === 'files') {
     initMembers();
   } else if (path === 'lid') {
